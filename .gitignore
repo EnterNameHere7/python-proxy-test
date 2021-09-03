@@ -1,0 +1,10 @@
+# dotenv environment variables file
+.env
+
+.pytest_cache
+
+# container directories that shouldn't be committed
+databases/storage
+ApiApplication/venv
+
+
