@@ -5,7 +5,6 @@ import redis
 import flask
 
 # local
-from src.config import app_config
 from src.controller.CivilizationController import CivilizationController
 from src.router.router import Router as Router
 from src.services.DatabaseService import DatabaseService
@@ -14,8 +13,6 @@ from src.services.RepositoryService import RepositoryService
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
-app.config.from_object(app_config["development"])
-app.config.from_pyfile('src/config.py')
 
 # load configuration
 config = dotenv_values(".env")
