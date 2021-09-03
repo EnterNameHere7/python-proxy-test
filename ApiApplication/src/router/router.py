@@ -14,6 +14,16 @@ class Router:
                  app: flask.Flask,
                  civilization_controller: CivilizationController
                  ) -> None:
+
+        @app.route("/", methods=['GET'])
+        def default():
+            return "<h2>Endpoints</h2>" \
+                   "" \
+                   "<p>/civilizations - this is used to retrieve all civilizations and preload the data in mysql and " \
+                   "cache in redis<p>" \
+                   "" \
+                   "<p>/civilization?civ_id=1 OR /civilization?name=Slavs"
+
         @app.route('/civilizations', methods=['GET'])
         def fetch_all_civilizations():
             try:
@@ -21,7 +31,6 @@ class Router:
             except Exception as e:
                 print(e)
                 resp = flask.Response(Error("Something went wrong try again please").to_string())
-
 
             resp.headers['Content-Type'] = 'application/json'
             return resp
