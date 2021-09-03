@@ -1,5 +1,7 @@
 # python-proxy-test
 
+#### NOTE: rename .env.example to .env before running
+
 ## Endpoints
 
 ##### Load data into mysql - ALWAYS first on new setup
