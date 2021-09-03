@@ -1,6 +1,7 @@
 # dotenv environment variables file
 .env
 
+.idea
 .pytest_cache
 
 # container directories that shouldn't be committed
