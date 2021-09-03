@@ -19,17 +19,15 @@ services:
       - api_network
   database:
     container_name: mysql-db
-    image: mysql:5.7
+    build:
+      context: .
+      dockerfile: dockerfiles/database.dockerfile
     ports:
       - 3306:3306
     environment:
       - TZ=GMT+2
     env_file:
       - ./.env
-    volumes:
-      - ./databases/storage:/var/lib/mysql
-      - ./databases/schema:/tmp/database
-    command: mysqld --init-file="/tmp/database/schema.sql"
     networks:
       - api_network
   cache:
